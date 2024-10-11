@@ -1,6 +1,7 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import { Outlet } from "react-router-dom";
+import Header from "../../components/Header"; // Header 컴포넌트 임포트
 
 const MainLayout = () => {
   const theme = useTheme();
@@ -25,7 +26,9 @@ const MainLayout = () => {
           padding: 0,
           borderBottom: "2px solid #ccc", // 헤더-하단 경계선
         }}
-      ></div>
+      >
+        <Header /> {/* Header 컴포넌트 추가 */}
+      </div>
 
       {/* 중앙과 우측 레이아웃 */}
       <div style={{ display: "flex", flexGrow: 1, margin: 0, padding: 0 }}>

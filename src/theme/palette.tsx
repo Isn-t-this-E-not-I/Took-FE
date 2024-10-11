@@ -18,9 +18,9 @@ const palette: PaletteOptions = {
     paper: "#fff", // 카드나 종이형 UI의 배경색
   },
   text: {
-    primary: "#0095FF", // 기본 텍스트 색상
-    secondary: "#787F83", // 서브 텍스트 색상
+    primary: "#787F83", // 기본 텍스트 색상
+    secondary: "#0095FF", // 서브 텍스트 색상
   },
 };
-
+// 787F83
 export default palette; //D9D9D9
