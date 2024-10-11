@@ -16,11 +16,13 @@ const DashboardLayout = () => {
         p={2}
         sx={{
           backgroundColor: theme.palette.background.paper,
-          boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
+          // boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
           height: "100vh",
           width: 260,
           overflow: "hidden", // 넘침 방지
-          paddingTop: "20px",
+          paddingTop: "30px",
+          borderTopRightRadius: "20px",
+          borderBottomRightRadius: "20px",
         }}
       >
         <Stack
@@ -89,8 +91,8 @@ const DashboardLayout = () => {
                     fontWeight: "bold",
                     color:
                       selected === el.index
-                        ? theme.palette.text.primary // 클릭된 상태에서는 primary 텍스트 색상 적용
-                        : theme.palette.text.secondary, // 클릭되지 않은 상태에서는 secondary 텍스트 색상 적용
+                        ? theme.palette.text.secondary // 클릭된 상태에서는 secondary 텍스트 색상 적용
+                        : theme.palette.text.primary, // 클릭되지 않은 상태에서는 primary 텍스트 색상 적용
                   }}
                 >
                   {el.title}
