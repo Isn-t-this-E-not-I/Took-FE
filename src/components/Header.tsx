@@ -4,6 +4,7 @@ import { FaBell } from "react-icons/fa"; // 필요한 아이콘
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import SearchBar from "./SearchBar"; // 검색창 컴포넌트 불러오기
+import LocationInfo from "../components/LocationInfo";
 
 const Header: React.FC = () => {
   const [openSettings, setOpenSettings] = useState(false);
@@ -14,17 +15,18 @@ const Header: React.FC = () => {
   return (
     <div
       style={{
-        padding: "30px 20px",
+        padding: "30px 10px",
         display: "flex",
         justifyContent: "space-between", // 왼쪽 검색창과 오른쪽 아이콘을 양쪽에 배치
         alignItems: "center",
       }}
     >
       {/* 검색창 */}
-      <div style={{ width: "100%", margin: "0 0 0 100px" }}>
+      <div style={{ width: "10%", margin: "0 0 0 100px" }}>
         <SearchBar /> {/* 검색창 컴포넌트 */}
       </div>
-
+      {/* 위치 정보 */}
+      <LocationInfo /> {/* You are now in 부분 */}
       {/* 우측 아이콘들 */}
       <div style={{ display: "flex", alignItems: "center" }}>
         {/* Settings 아이콘 */}
