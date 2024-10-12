@@ -22,8 +22,9 @@ const MobileHeader = () => {
           </IconButton>
 
           {/* 검색창 */}
-          <Box sx={{ flexGrow: 1 }}>
-            <SearchBar />
+          <Box sx={{ flexGrow: 1, ml: 1 }}>
+            {/* 모바일에서는 width를 작게 설정 */}
+            <SearchBar width="95%" />
           </Box>
         </Toolbar>
       </AppBar>
