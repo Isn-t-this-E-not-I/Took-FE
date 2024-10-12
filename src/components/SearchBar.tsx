@@ -3,7 +3,8 @@ import { TextField, InputAdornment, IconButton } from "@mui/material";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { GoXCircleFill } from "react-icons/go";
 
-const SearchBar = () => {
+// width를 prop으로 받도록 수정
+const SearchBar = ({ width = "550px" }: { width?: string }) => {
   const [searchText, setSearchText] = useState("");
 
   // 입력된 텍스트를 지우는 함수
@@ -20,7 +21,7 @@ const SearchBar = () => {
       sx={{
         backgroundColor: "#fff",
         borderRadius: "15px",
-        width: "550px", // 검색창의 너비
+        width, // 검색창의 너비를 prop으로 받음
         "& .MuiOutlinedInput-root": {
           padding: "5px 15px", // 세로 길이 조정
           height: "45px", // 검색창의 높이 설정
