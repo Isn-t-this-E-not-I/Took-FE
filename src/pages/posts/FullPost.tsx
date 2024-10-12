@@ -1,10 +1,14 @@
 import React from "react";
+import BannerContainer from "@/components/container/BannerContainer";
+import MainContainer from "@/components/container/MainContainer";
 
 const FullPost: React.FC = () => {
   return (
-    <div>
-      <h1>Full Post Page</h1>
-      <p>This is Full Post page</p>
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+      <BannerContainer title="Featured most" />
+
+      <MainContainer title="Following Contents" />
+      <p>explore page</p>
     </div>
   );
 };

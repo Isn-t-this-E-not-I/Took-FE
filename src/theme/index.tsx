@@ -10,6 +10,11 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: "1.025rem",
     },
+    h2: {
+      fontFamily: "M PLUS Rounded 1c, sans-serif",
+      fontWeight: 700,
+      fontSize: "1.1rem",
+    },
     body1: {
       fontFamily: "M PLUS Rounded 1c, sans-serif",
       fontSize: "1rem", // 16px
