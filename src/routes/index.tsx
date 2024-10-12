@@ -4,7 +4,6 @@ import { useMediaQuery } from "@mui/material";
 
 // layouts
 import DashboardLayout from "../layouts/dashboard";
-import MainLayout from "../layouts/main";
 import AuthLayout from "../layouts/auth";
 import MobileDashboardLayout from "../layouts/dashboard/Mobile"; // 모바일 dashboard layout
 import MobileMainLayout from "../layouts/main/Mobile"; // 모바일 main layout
@@ -41,17 +40,11 @@ export default function Router() {
       path: "/",
       element: isMobile ? <MobileDashboardLayout /> : <DashboardLayout />,
       children: [
-        {
-          path: "/",
-          element: isMobile ? <MobileMainLayout /> : <MainLayout />,
-          children: [
-            { path: "main", element: <MainPage /> },
-            { path: "create", element: <CreatePostPage /> },
-            { path: "chat", element: <ChatPage /> },
-            { path: "explore", element: <FullPostPage /> },
-            { path: "community", element: <CommunityPage /> },
-          ],
-        },
+        { path: "main", element: <MainPage /> },
+        { path: "create", element: <CreatePostPage /> },
+        { path: "chat", element: <ChatPage /> },
+        { path: "explore", element: <FullPostPage /> },
+        { path: "community", element: <CommunityPage /> },
         { path: "404", element: <Page404 /> },
         { path: "*", element: <Navigate to="/404" replace /> },
       ],
