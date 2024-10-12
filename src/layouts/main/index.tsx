@@ -1,7 +1,6 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import { Outlet } from "react-router-dom";
-import Header from "../../components/Header"; // Header 컴포넌트 임포트
 
 const MainLayout = () => {
   const theme = useTheme();
@@ -16,20 +15,6 @@ const MainLayout = () => {
         padding: 0,
       }}
     >
-      {/* 상단 헤더 */}
-      <div
-        style={{
-          backgroundColor: theme.palette.background.default,
-          height: "90px",
-          width: "100%",
-          margin: 0,
-          padding: 0,
-          borderBottom: "2px solid #ccc", // 헤더-하단 경계선
-        }}
-      >
-        <Header /> {/* Header 컴포넌트 추가 */}
-      </div>
-
       {/* 중앙과 우측 레이아웃 */}
       <div style={{ display: "flex", flexGrow: 1, margin: 0, padding: 0 }}>
         {/* 중앙 부분 */}
@@ -39,10 +24,11 @@ const MainLayout = () => {
             padding: "20px",
             backgroundColor: theme.palette.background.default,
             margin: 0,
+            borderTop: "2px solid #ccc", // 헤더-중앙 경계선
             borderRight: "2px solid #ccc", // 중앙-우측 경계선
           }}
         >
-          <Outlet context="center" /> {/* 중앙 부분 */}
+          <Outlet context="center" /> {/* 중앙에 해당 페이지 렌더링 */}
         </div>
 
         {/* 우측 부분 */}
@@ -52,10 +38,11 @@ const MainLayout = () => {
             padding: "20px",
             backgroundColor: theme.palette.background.default,
             margin: 0,
+            borderTop: "2px solid #ccc", // 헤더-우측 경계선
             borderLeft: "2px solid #ccc", // 중앙-우측 경계선
           }}
         >
-          <Outlet context="right" /> {/* 우측 부분 */}
+          <Outlet context="right" /> {/* 우측에 추가적인 컴포넌트 렌더링 */}
         </div>
       </div>
     </div>

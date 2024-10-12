@@ -1,16 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashboardLayout from "@/layouts/dashboard";
-import MainLayout from "@/layouts/main";
+import { BrowserRouter as Router } from "react-router-dom";
+import RouterConfig from "@/routes";
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<DashboardLayout />}>
-          <Route path="/" element={<MainLayout />}></Route>
-        </Route>
-      </Routes>
+      <RouterConfig /> {/* 모든 라우트 설정을 가져옴 */}
     </Router>
   );
 };
