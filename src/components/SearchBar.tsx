@@ -20,7 +20,7 @@ const SearchBar = () => {
       sx={{
         backgroundColor: "#fff",
         borderRadius: "15px",
-        width: "500px", // 검색창의 너비
+        width: "550px", // 검색창의 너비
         "& .MuiOutlinedInput-root": {
           padding: "5px 15px", // 세로 길이 조정
           height: "45px", // 검색창의 높이 설정
@@ -38,7 +38,10 @@ const SearchBar = () => {
         endAdornment: searchText && (
           <InputAdornment position="end">
             <IconButton onClick={handleClearSearch}>
-              <GoXCircleFill style={{ margin: "0 20px" }} /> {/* 패딩 추가 */}
+              <GoXCircleFill
+                style={{ margin: "0 10px", fontSize: "1.25rem" }}
+              />{" "}
+              {/* 패딩 추가 */}
             </IconButton>
           </InputAdornment>
         ),
