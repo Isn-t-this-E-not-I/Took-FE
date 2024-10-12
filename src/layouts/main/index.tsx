@@ -1,8 +1,15 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import { Outlet } from "react-router-dom";
 
-const MainLayout = () => {
+interface MainLayoutProps {
+  rightComponent?: JSX.Element;
+  children: React.ReactNode;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({
+  rightComponent,
+  children,
+}) => {
   const theme = useTheme();
 
   return (
@@ -28,22 +35,24 @@ const MainLayout = () => {
             borderRight: "2px solid #ccc", // 중앙-우측 경계선
           }}
         >
-          <Outlet context="center" /> {/* 중앙에 해당 페이지 렌더링 */}
+          {children} {/* 중앙에 전달된 children 컴포넌트를 렌더링 */}
         </div>
 
         {/* 우측 부분 */}
-        <div
-          style={{
-            width: "400px",
-            padding: "20px",
-            backgroundColor: theme.palette.background.default,
-            margin: 0,
-            borderTop: "2px solid #ccc", // 헤더-우측 경계선
-            borderLeft: "2px solid #ccc", // 중앙-우측 경계선
-          }}
-        >
-          <Outlet context="right" /> {/* 우측에 추가적인 컴포넌트 렌더링 */}
-        </div>
+        {rightComponent && (
+          <div
+            style={{
+              width: "400px",
+              padding: "20px",
+              backgroundColor: theme.palette.background.default,
+              margin: 0,
+              borderTop: "2px solid #ccc", // 헤더-우측 경계선
+              borderLeft: "2px solid #ccc", // 중앙-우측 경계선
+            }}
+          >
+            {rightComponent} {/* 우측에 전달된 컴포넌트 렌더링 */}
+          </div>
+        )}
       </div>
     </div>
   );

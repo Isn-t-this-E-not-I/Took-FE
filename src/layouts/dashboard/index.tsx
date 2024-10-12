@@ -6,7 +6,7 @@ import Logo from "../../assets/images/logo.png";
 import { Nav_Buttons } from "../../data";
 import Header from "../../components/header/Header";
 
-const DashboardLayout = () => {
+const DashboardLayout = ({ rightComponent }: any) => {
   const theme = useTheme();
   const [selected, setSelected] = useState(0);
   const location = useLocation(); // 현재 경로 가져오기
@@ -29,6 +29,7 @@ const DashboardLayout = () => {
             paddingTop: "30px",
             borderTopRightRadius: "20px",
             borderBottomRightRadius: "20px",
+            flexShrink: 0, // 사이드바의 크기가 고정되도록 설정
           }}
         >
           <Stack
@@ -115,10 +116,17 @@ const DashboardLayout = () => {
       )}
 
       {/* 중앙 및 우측 콘텐츠 렌더링 */}
-      <Box flexGrow={1}>
-        {!isAuthPage && <Header />}{" "}
-        {/* auth 페이지가 아닌 경우에만 헤더를 렌더링 */}
-        <Outlet /> {/* MainLayout 렌더링 */}
+      <Box display="flex" flexDirection="column" flexGrow={1}>
+        {/* 헤더. auth 페이지가 아닌 경우에만 헤더를 렌더링  */}
+        {!isAuthPage && <Header />} {/*중앙 및 우측 부분*/}
+        <Box display="flex" flexGrow={1}>
+          <Box flexGrow={2}>
+            <Outlet /> {/* 중앙 페이지 렌더링 */}
+          </Box>
+          <Box>
+            {rightComponent} {/* 우측 컴포넌트 렌더링 */}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
