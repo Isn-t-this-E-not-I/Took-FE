@@ -4,15 +4,15 @@ import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import { Nav_Buttons } from "../../data";
-import Header from "../../components/Header"; // 헤더 컴포넌트 추가
+import Header from "../../components/header/Header";
 
 const DashboardLayout = () => {
   const theme = useTheme();
   const [selected, setSelected] = useState(0);
   const location = useLocation(); // 현재 경로 가져오기
-  const navigate = useNavigate(); // 경로 이동을 위한 navigate 함수
+  const navigate = useNavigate(); // 경로 이동
 
-  // auth 페이지에서는 헤더를 숨기기 위한 조건 설정
+  // auth 페이지에서는 헤더 숨기기
   const isAuthPage = location.pathname.startsWith("/auth");
 
   return (
