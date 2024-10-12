@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { FaGear, FaUser } from "react-icons/fa6"; // 필요한 아이콘
-import { FaBell } from "react-icons/fa"; // 필요한 아이콘
+import { FaGear, FaUser } from "react-icons/fa6";
+import { FaBell } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import SearchBar from "./SearchBar"; // 검색창 컴포넌트 불러오기
-import LocationInfo from "../components/LocationInfo";
+import SearchBar from "../SearchBar";
+import LocationInfo from "../LocationInfo";
 
 const Header: React.FC = () => {
   const [openSettings, setOpenSettings] = useState(false);

@@ -4,7 +4,7 @@ const UserPage: React.FC = () => {
   return (
     <div>
       <h1>User Page</h1>
-      <p>This is Create User page</p>
+      <p>This is User page</p>
     </div>
   );
 };

@@ -1,15 +1,19 @@
 import { Suspense, lazy, ComponentType } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 
 // layouts
 import DashboardLayout from "../layouts/dashboard";
-import AuthLayout from "../layouts/auth"; // auth 전용 레이아웃 추가
-import MainLayout from "../layouts/main"; // MainLayout 추가
+import MainLayout from "../layouts/main";
+import AuthLayout from "../layouts/auth";
+import MobileDashboardLayout from "../layouts/dashboard/Mobile"; // 모바일 dashboard layout
+import MobileMainLayout from "../layouts/main/Mobile"; // 모바일 main layout
+import MobileAuthLayout from "../layouts/auth/Mobile"; // 모바일 auth
 
 // 컴포넌트 로딩 스크린
 import LoadingScreen from "../components/LoadingScreen";
 
-// Lazy 로딩 컴포넌트
+// Lazy 로딩 컴포넌트 설정
 const Loadable = (Component: ComponentType<any>) => (props: any) => {
   return (
     <Suspense fallback={<LoadingScreen />}>
@@ -19,10 +23,12 @@ const Loadable = (Component: ComponentType<any>) => (props: any) => {
 };
 
 export default function Router() {
+  const isMobile = useMediaQuery("(max-width: 768px)"); // 모바일 여부 판별
+
   return useRoutes([
     {
       path: "/auth",
-      element: <AuthLayout />, // auth 전용 레이아웃
+      element: isMobile ? <MobileAuthLayout /> : <AuthLayout />,
       children: [
         { path: "login", element: <LoginPage /> },
         { path: "register", element: <RegisterPage /> },
@@ -33,11 +39,11 @@ export default function Router() {
     },
     {
       path: "/",
-      element: <DashboardLayout />, // DashboardLayout 사용
+      element: isMobile ? <MobileDashboardLayout /> : <DashboardLayout />,
       children: [
         {
           path: "/",
-          element: <MainLayout />, // MainLayout을 DashboardLayout 내부에 렌더링
+          element: isMobile ? <MobileMainLayout /> : <MainLayout />,
           children: [
             { path: "main", element: <MainPage /> },
             { path: "create", element: <CreatePostPage /> },
