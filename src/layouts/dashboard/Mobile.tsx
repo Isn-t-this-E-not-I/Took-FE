@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Nav_Buttons } from "@/data";
-import MobileHeader from "@/components/header/\bMobileHeader";
+import MobileHeader from "../../components/header/MobileHeader";
 
 const MobileDashboardLayout = () => {
   const theme = useTheme(); // 테마 불러오기

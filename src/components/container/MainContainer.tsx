@@ -42,11 +42,11 @@ const MainContainer: React.FC<MainContainerProps> = ({
         <Typography
           variant="body1"
           sx={{ color: "#0095FF", cursor: "pointer" }}
-        ></Typography>
+        >
+          {/* 지도 전체화면 버튼 영역 */}
+        </Typography>
       </Box>
-      <Box sx={{ padding: "10px 0", flexGrow: 1 }}>
-        {/* 이 부분에 컨텐츠 삽입*/}
-      </Box>
+      <Box sx={{ padding: "10px 0", flexGrow: 1 }}>1</Box>
     </Box>
   );
 };
