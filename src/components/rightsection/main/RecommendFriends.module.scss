@@ -1,0 +1,86 @@
+.scrollContainer {
+  position: relative;
+  padding-right: 15px;
+  max-height: 22rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.recommend {
+  display: grid;
+  width: 15rem;
+  user-select: none;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .bigBox {
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    border-radius: 12px;
+
+    .profileImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .profileInfo {
+      font-size: 14px;
+      margin: auto auto auto 1rem;
+      .profileNickname {
+        font-weight: bold;
+      }
+      &:hover {
+        color: white;
+      }
+    }
+
+    &:hover {
+      background-color: #b9b9b9;
+      transition: 0.5s;
+      color: white;
+    }
+
+    .AddFriendIcon {
+      cursor: pointer;
+    }
+    .AddFriendIcon:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .moreBox {
+    margin: 1rem auto;
+    width: 15rem;
+    text-align: center;
+
+    .more {
+      color: rgb(3, 168, 218);
+      cursor: pointer;
+    }
+
+    .more:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+/* 스크롤바 스타일링 */
+.scrollContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  border-radius: 10px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}

@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { FaMapLocationDot } from "react-icons/fa6"; // 위치 아이콘
+import axios from "axios";
 
 const LocationInfo = () => {
-  const city = "Seoul"; // 도시 (일단 하드코딩)
-  const country = "Korea"; // 나라 (일단 하드코딩)
+  const [location, setLocation] = useState({ city: "", country: "" });
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          // Nominatim 는 높은 트래픽에서 권장 하지 않음
+          const response = await axios.get(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json&addressdetails=1`
+          );
+
+          const { suburb, city, country } = response.data.address;
+
+          setLocation({
+            city: suburb || city || "Unknown City",
+            country: country || "Unknown Country",
+          });
+        } catch (error) {
+          console.error("Error fetching location data:", error);
+        }
+      });
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }, []);
 
   return (
     <Box
@@ -34,7 +60,7 @@ const LocationInfo = () => {
           variant="body1"
           sx={{ fontWeight: "bold", fontSize: "1.1rem", color: "#000000" }}
         >
-          {city}, {country}
+          {location.city} {location.country}
         </Typography>
       </Box>
     </Box>

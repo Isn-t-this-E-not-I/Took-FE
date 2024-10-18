@@ -42,7 +42,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         {rightComponent && (
           <div
             style={{
-              width: "400px",
+              width: "380px",
               padding: "20px",
               backgroundColor: theme.palette.background.default,
               margin: 0,

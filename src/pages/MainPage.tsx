@@ -2,6 +2,7 @@ import React from "react";
 import BannerContainer from "@/components/container/BannerContainer";
 import MainContainer from "@/components/container/MainContainer";
 import Recommend from "../components/rightsection/RightSection";
+import RecommendFriends from "../components/rightsection/main/RecommendFriends";
 import MainLayout from "@/layouts/main";
 
 const MainPage: React.FC = () => {
@@ -9,8 +10,8 @@ const MainPage: React.FC = () => {
     <MainLayout
       rightComponent={
         <div>
-          <Recommend title="추천친구" />
-          <Recommend title="추천친구" />
+          <Recommend title="추천친구" children={<RecommendFriends />} />
+          <Recommend title="팔로잉 목록" />
         </div>
       }
     >
